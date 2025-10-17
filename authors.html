@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Authors - Online Bookstore</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+      .hero-section {
+        background:#6c757d;
+        color: white;
+        padding: 3rem 0;
+      }
+      .author-card {
+        background: white;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        text-align: center;
+        height: 100%;
+      }
+      .author-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      }
+      .author-avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 1.5rem auto 1rem;
+        border: 4px solid #f8f9fa;
+      }
+      .author-bio {
+        color: #6c757d;
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+      .social-links {
+        margin-top: 1rem;
+      }
+      .social-links a {
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background-color: #f8f9fa;
+        color: #495057;
+        text-decoration: none;
+        line-height: 35px;
+        margin: 0 0.25rem;
+        transition: all 0.3s ease;
+      }
+      .social-links a:hover {
+        background-color: #667eea;
+        color: white;
+        transform: translateY(-2px);
+      }
+      .filter-buttons {
+        background-color: #f8f9fa;
+        padding: 1rem;
+        border-radius: 10px;
+        margin-bottom: 2rem;
+      }
+      .featured-author {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: 2px solid #667eea;
+      }
+      .author-stats {
+        background-color: #f8f9fa;
+        padding: 1rem;
+        border-radius: 10px;
+        margin-top: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-book me-2" viewBox="0 0 16 16">
+            <path d="M1 2.82v10.92a1 1 0 0 0 1.5.86l2.5-.86a1 1 0 0 1 .5-.14h6.5a1 1 0 0 0 1 1V4.5a1 1 0 0 0-1-1H7.5a1 1 0 0 1-.5-.14l-2.5-.86a1 1 0 0 0-1.5.86ZM4 1.763l2.5-.86c.883-.304 1.7.228 2 .93L8 2.82v9.52a2 2 0 0 1-1.5.55l-2.5.86a2 2 0 0 1-2 .14V3.123c-.722-.249-1.5.34-1.5 1.14v8.52c0 .8.673 1.488 1.5 1.583L4 14.283V1.763ZM12 4.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Z"/>
+          </svg>
+          <span class="fs-4">Online Bookstore</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="categories.html">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="authors.html">Authors</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cart.html">Cart</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="user.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+          <div class="d-flex" role="search">
+            <input
+              id="author-search-input"
+              class="form-control me-2"
+              type="search"
+              placeholder="Search Authors"
+              aria-label="Search"/>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <div class="container text-center">
+        <h1 class="display-4 mb-4">Meet Our Authors</h1>
+        <p class="lead">Discover the talented writers behind your favorite books. Learn about their journey, expertise, and latest works.</p>
+      </div>
+    </div>
+
+    <div class="container my-5">
+      <div class="row mb-4">
+        <div class="col-12 text-center">
+          <h2>Our Authors</h2>
+          <p class="lead">Meet the talented authors behind our collection</p>
+        </div>
+      </div>
+
+      <div id="authors-section" class="row g-4">
+        <!-- Author cards will be populated here -->
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      const authors = [
+        {
+          name: "Alex Johnson",
+          specialty: "AI Researcher & Author",
+          bio: "Expert in autonomous AI systems and machine learning with 15+ years of experience.",
+          books: 15,
+          rating: 4.9,
+          readers: 10000,
+          category: "Agentic AI",
+          image: "https://randomuser.me/api/portraits/men/1.jpg",
+          featured: true
+        },
+        {
+          name: "Sarah Chen",
+          specialty: "Cybersecurity Expert",
+          bio: "Leading cybersecurity researcher specializing in web application security and cryptography.",
+          books: 8,
+          rating: 4.8,
+          readers: 8500,
+          category: "Cyber Security",
+          image: "https://randomuser.me/api/portraits/women/2.jpg",
+          featured: false
+        },
+        {
+          name: "Mike Thompson",
+          specialty: "UX Designer & Author",
+          bio: "Award-winning UX designer with expertise in user-centered design and accessibility.",
+          books: 12,
+          rating: 4.6,
+          readers: 7200,
+          category: "UI/UX",
+          image: "https://randomuser.me/api/portraits/men/3.jpg",
+          featured: false
+        },
+        {
+          name: "Emily White",
+          specialty: "UX Researcher",
+          bio: "Pioneer in user experience research methodologies and human-computer interaction.",
+          books: 10,
+          rating: 4.9,
+          readers: 6800,
+          category: "UI/UX",
+          image: "https://randomuser.me/api/portraits/women/4.jpg",
+          featured: false
+        },
+        {
+          name: "David Lee",
+          specialty: "IT Consultant",
+          bio: "Senior IT consultant with extensive experience in enterprise systems and infrastructure.",
+          books: 20,
+          rating: 4.2,
+          readers: 12000,
+          category: "Information Technology",
+          image: "https://randomuser.me/api/portraits/men/5.jpg",
+          featured: false
+        },
+        {
+          name: "Mark Evans",
+          specialty: "Security Architect",
+          bio: "Cybersecurity architect specializing in cryptography and secure system design.",
+          books: 14,
+          rating: 4.7,
+          readers: 9500,
+          category: "Cyber Security",
+          image: "https://randomuser.me/api/portraits/men/6.jpg",
+          featured: false
+        },
+        {
+          name: "Laura Adams",
+          specialty: "AI Ethics Researcher",
+          bio: "Leading researcher in AI ethics and responsible AI development practices.",
+          books: 6,
+          rating: 4.4,
+          readers: 5200,
+          category: "Agentic AI",
+          image: "https://randomuser.me/api/portraits/women/7.jpg",
+          featured: false
+        },
+        {
+          name: "Chris Green",
+          specialty: "Systems Administrator",
+          bio: "Expert systems administrator with focus on network infrastructure and cloud computing.",
+          books: 18,
+          rating: 4.1,
+          readers: 8900,
+          category: "Information Technology",
+          image: "https://randomuser.me/api/portraits/men/8.jpg",
+          featured: false
+        }
+      ];
+
+      const authorsContainer = document.getElementById('authors-section');
+
+      // Function to render authors
+      function renderAuthors() {
+        authorsContainer.innerHTML = '';
+
+        authors.forEach(author => {
+          authorsContainer.innerHTML += `
+            <div class="col-md-4">
+              <div class="card shadow-sm border-0 rounded-4">
+                <img src="${author.image}" class="card-img-top rounded-top-4" alt="${author.name}">
+                <div class="card-body text-center">
+                  <h5 class="fw-bold">${author.name}</h5>
+                  <p class="text-muted">${author.specialty}</p>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+      }
+
+      // Initial render
+      renderAuthors();
+    </script>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light text-center p-4 mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <h5>📘 Online Bookstore</h5>
+            <p>Your one-stop destination for the latest books in technology, cybersecurity, AI, and UI/UX design.</p>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="index.html" class="text-light">Home</a></li>
+              <li><a href="categories.html" class="text-light">Categories</a></li>
+              <li><a href="authors.html" class="text-light">Authors</a></li>
+              <li><a href="about.html" class="text-light">About Us</a></li>
+              <li><a href="faq.html" class="text-light">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h5>Contact Info</h5>
+            <p><i class="bi bi-envelope"></i> info@onlinebookstore.com</p>
+            <p><i class="bi bi-phone"></i> +1 (555) 123-4567</p>
+            <div class="mt-2">
+              <a href="#" class="text-light me-3" data-bs-toggle="tooltip" title="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="text-light me-3" data-bs-toggle="tooltip" title="Twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="text-light me-3" data-bs-toggle="tooltip" title="Instagram"><i class="bi bi-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+        <hr class="my-3">
+        <p class="mb-0">&copy; 2025 Online Bookstore | Designed by Dhruvit Parmar</p>
+      </div>
+    </footer>
+  </body>
+</html>

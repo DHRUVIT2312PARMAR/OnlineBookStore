@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout - Online Bookstore</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+      .checkout-hero {
+        background: linear-gradient(135deg, #6f42c1 0%, #e83e8c 100%);
+        color: white;
+        padding: 3rem 0;
+      }
+      .checkout-section {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        padding: 2rem;
+        margin-bottom: 2rem;
+      }
+      .order-summary {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-radius: 10px;
+        padding: 1.5rem;
+      }
+      .payment-methods {
+        border: 2px solid #dee2e6;
+        border-radius: 10px;
+        padding: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .payment-methods:hover {
+        border-color: #6f42c1;
+        background-color: #f8f9ff;
+      }
+      .payment-methods.selected {
+        border-color: #6f42c1;
+        background-color: #f8f9ff;
+      }
+      .form-control:focus, .form-select:focus {
+        border-color: #6f42c1;
+        box-shadow: 0 0 0 0.2rem rgba(111, 66, 193, 0.25);
+      }
+      .btn-checkout {
+        background: linear-gradient(135deg, #6f42c1 0%, #e83e8c 100%);
+        border: none;
+        padding: 1rem 2rem;
+        font-weight: 600;
+        font-size: 1.1rem;
+      }
+      .btn-checkout:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(111, 66, 193, 0.3);
+      }
+      .security-badge {
+        background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        color: white;
+        padding: 1rem;
+        border-radius: 10px;
+        text-align: center;
+      }
+      .processing-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-book me-2" viewBox="0 0 16 16">
+            <path d="M1 2.82v10.92a1 1 0 0 0 1.5.86l2.5-.86a1 1 0 0 1 .5-.14h6.5a1 1 0 0 0 1 1V4.5a1 1 0 0 0-1-1H7.5a1 1 0 0 1-.5-.14l-2.5-.86a1 1 0 0 0-1.5.86ZM4 1.763l2.5-.86c.883-.304 1.7.228 2 .93L8 2.82v9.52a2 2 0 0 1-1.5.55l-2.5.86a2 2 0 0 1-2 .14V3.123c-.722-.249-1.5.34-1.5 1.14v8.52c0 .8.673 1.488 1.5 1.583L4 14.283V1.763ZM12 4.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Z"/>
+          </svg>
+          <span class="fs-4">Online Bookstore</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="categories.html">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="authors.html">Authors</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cart.html">Cart</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="user.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="checkout.html">Checkout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="checkout-hero">
+      <div class="container text-center">
+        <h1 class="display-4 mb-4">Secure Checkout</h1>
+        <p class="lead">Complete your order safely and securely</p>
+      </div>
+    </div>
+
+    <div class="container my-5">
+      <!-- Progress Steps -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <div class="d-flex justify-content-center">
+            <div class="text-center me-4">
+              <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                <i class="bi bi-check"></i>
+              </div>
+              <p class="mt-2 mb-0">Cart</p>
+            </div>
+            <div class="text-center me-4">
+              <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                2
+              </div>
+              <p class="mt-2 mb-0">Checkout</p>
+            </div>
+            <div class="text-center">
+              <div class="bg-light text-muted rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                3
+              </div>
+              <p class="mt-2 mb-0 text-muted">Confirmation</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Checkout Form -->
+        <div class="col-lg-8">
+          <form id="checkoutForm">
+            <!-- Shipping Information -->
+            <div class="checkout-section">
+              <h3 class="mb-4">
+                <i class="bi bi-truck me-2"></i>Shipping Information
+              </h3>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="firstName" class="form-label">First Name *</label>
+                    <input type="text" class="form-control" id="firstName" required>
+                    <div class="invalid-feedback">First name is required.</div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="lastName" class="form-label">Last Name *</label>
+                    <input type="text" class="form-control" id="lastName" required>
+                    <div class="invalid-feedback">Last name is required.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="email" class="form-label">Email Address *</label>
+                <input type="email" class="form-control" id="email" required>
+                <div class="invalid-feedback">Please enter a valid email address.</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="phone">
+              </div>
+
+              <div class="mb-3">
+                <label for="address" class="form-label">Address *</label>
+                <input type="text" class="form-control" id="address" required>
+                <div class="invalid-feedback">Address is required.</div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="mb-3">
+                    <label for="city" class="form-label">City *</label>
+                    <input type="text" class="form-control" id="city" required>
+                    <div class="invalid-feedback">City is required.</div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="mb-3">
+                    <label for="state" class="form-label">State *</label>
+                    <select class="form-select" id="state" required>
+                      <option value="">Select State</option>
+                      <option value="AL">Alabama</option>
+                      <option value="AK">Alaska</option>
+                      <option value="AZ">Arizona</option>
+                      <option value="AR">Arkansas</option>
+                      <option value="CA">California</option>
+                      <option value="CO">Colorado</option>
+                      <option value="CT">Connecticut</option>
+                      <option value="DE">Delaware</option>
+                      <option value="FL">Florida</option>
+                      <option value="GA">Georgia</option>
+                      <option value="HI">Hawaii</option>
+                      <option value="ID">Idaho</option>
+                      <option value="IL">Illinois</option>
+                      <option value="IN">Indiana</option>
+                      <option value="IA">Iowa</option>
+                      <option value="KS">Kansas</option>
+                      <option value="KY">Kentucky</option>
+                      <option value="LA">Louisiana</option>
+                      <option value="ME">Maine</option>
+                      <option value="MD">Maryland</option>
+                      <option value="MA">Massachusetts</option>
+                      <option value="MI">Michigan</option>
+                      <option value="MN">Minnesota</option>
+                      <option value="MS">Mississippi</option>
+                      <option value="MO">Missouri</option>
+                      <option value="MT">Montana</option>
+                      <option value="NE">Nebraska</option>
+                      <option value="NV">Nevada</option>
+                      <option value="NH">New Hampshire</option>
+                      <option value="NJ">New Jersey</option>
+                      <option value="NM">New Mexico</option>
+                      <option value="NY">New York</option>
+                      <option value="NC">North Carolina</option>
+                      <option value="ND">North Dakota</option>
+                      <option value="OH">Ohio</option>
+                      <option value="OK">Oklahoma</option>
+                      <option value="OR">Oregon</option>
+                      <option value="PA">Pennsylvania</option>
+                      <option value="RI">Rhode Island</option>
+                      <option value="SC">South Carolina</option>
+                      <option value="SD">South Dakota</option>
+                      <option value="TN">Tennessee</option>
+                      <option value="TX">Texas</option>
+                      <option value="UT">Utah</option>
+                      <option value="VT">Vermont</option>
+                      <option value="VA">Virginia</option>
+                      <option value="WA">Washington</option>
+                      <option value="WV">West Virginia</option>
+                      <option value="WI">Wisconsin</option>
+                      <option value="WY">Wyoming</option>
+                    </select>
+                    <div class="invalid-feedback">Please select a state.</div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="mb-3">
+                    <label for="zipCode" class="form-label">ZIP Code *</label>
+                    <input type="text" class="form-control" id="zipCode" pattern="[0-9]{5}" required>
+                    <div class="invalid-feedback">Please enter a valid ZIP code.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Payment Information -->
+            <div class="checkout-section">
+              <h3 class="mb-4">
+                <i class="bi bi-credit-card me-2"></i>Payment Information
+              </h3>
+
+              <!-- Payment Method Selection -->
+              <div class="mb-4">
+                <label class="form-label">Payment Method</label>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="payment-methods mb-3" data-method="credit">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="paymentMethod" id="creditCard" value="credit" checked>
+                        <label class="form-check-label" for="creditCard">
+                          <i class="bi bi-credit-card-2-front me-2"></i>Credit/Debit Card
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="payment-methods mb-3" data-method="paypal">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="paymentMethod" id="paypal" value="paypal">
+                        <label class="form-check-label" for="paypal">
+                          <i class="bi bi-paypal me-2"></i>PayPal
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Credit Card Form -->
+              <div id="creditCardForm">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="mb-3">
+                      <label for="cardNumber" class="form-label">Card Number *</label>
+                      <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+                      <div class="invalid-feedback">Please enter a valid card number.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label for="expiryDate" class="form-label">Expiry Date *</label>
+                      <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" required>
+                      <div class="invalid-feedback">Please enter expiry date.</div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label for="cvv" class="form-label">CVV *</label>
+                      <input type="text" class="form-control" id="cvv" placeholder="123" required>
+                      <div class="invalid-feedback">Please enter CVV.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="cardName" class="form-label">Name on Card *</label>
+                  <input type="text" class="form-control" id="cardName" required>
+                  <div class="invalid-feedback">Name on card is required.</div>
+                </div>
+              </div>
+
+              <!-- PayPal Form (Initially Hidden) -->
+              <div id="paypalForm" style="display: none;">
+                <div class="text-center p-4 border rounded">
+                  <i class="bi bi-paypal fs-1 text-primary mb-3"></i>
+                  <h5>PayPal Checkout</h5>
+                  <p class="text-muted">You will be redirected to PayPal to complete your payment securely.</p>
+                  <button type="button" class="btn btn-primary">
+                    <i class="bi bi-paypal me-2"></i>Continue with PayPal
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+              <button type="submit" class="btn btn-checkout btn-lg">
+                <span class="btn-text">Complete Order</span>
+                <div class="spinner-border spinner-border-sm ms-2" role="status" style="display: none;">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="col-lg-4">
+          <div class="checkout-section">
+            <h3 class="mb-4">Order Summary</h3>
+
+            <div class="order-summary">
+              <!-- Order Items -->
+              <div id="order-items">
+                <div class="d-flex align-items-center mb-3">
+                  <img src="images/book1.jpg" alt="Book" class="me-3" style="width: 50px; height: auto;">
+                  <div class="flex-grow-1">
+                    <h6 class="mb-0">Practical AI Agents</h6>
+                    <small class="text-muted">Qty: 1</small>
+                  </div>
+                  <span class="fw-bold">$45.99</span>
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                  <img src="images/book2.jpg" alt="Book" class="me-3" style="width: 50px; height: auto;">
+                  <div class="flex-grow-1">
+                    <h6 class="mb-0">Web Application Security</h6>
+                    <small class="text-muted">Qty: 2</small>
+                  </div>
+                  <span class="fw-bold">$119.98</span>
+                </div>
+              </div>
+
+              <hr>
+              <div class="mb-2">
+                <div class="d-flex justify-content-between">
+                  <span>Subtotal</span>
+                  <span>$165.97</span>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span>Shipping</span>
+                  <span>$0.00</span>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span>Tax</span>
+                  <span>$13.28</span>
+                </div>
+              </div>
+
+              <hr>
+              <div class="d-flex justify-content-between mb-3">
+                <strong>Total</strong>
+                <strong class="fs-5">$179.25</strong>
+              </div>
+            </div>
+
+            <!-- Security Information -->
+            <div class="security-badge mt-4">
+              <i class="bi bi-shield-check fs-4 mb-2"></i>
+              <h6>Secure Checkout</h6>
+              <small>Your payment information is encrypted and secure</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Processing Overlay -->
+    <div class="processing-overlay" id="processingOverlay">
+      <div class="text-center text-white">
+        <div class="spinner-border mb-3" role="status" style="width: 3rem; height: 3rem;">
+          <span class="visually-hidden">Processing...</span>
+        </div>
+        <h4>Processing Your Order</h4>
+        <p>Please don't close this page...</p>
+      </div>
+    </div>
+
+    <!-- Success Alert -->
+    <div class="container mt-4">
+      <div id="successAlert" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none;">
+        <i class="bi bi-check-circle me-2"></i>
+        <strong>Order Placed Successfully!</strong> Your order #12345 has been confirmed. You will receive a confirmation email shortly.
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Form elements
+      const checkoutForm = document.getElementById('checkoutForm');
+      const creditCardForm = document.getElementById('creditCardForm');
+      const paypalForm = document.getElementById('paypalForm');
+      const paymentMethods = document.querySelectorAll('.payment-methods');
+      const processingOverlay = document.getElementById('processingOverlay');
+      const successAlert = document.getElementById('successAlert');
+      const submitBtn = checkoutForm.querySelector('.btn-checkout');
+      const spinner = submitBtn.querySelector('.spinner-border');
+
+      // Handle payment method selection
+      paymentMethods.forEach(method => {
+        method.addEventListener('click', () => {
+          // Remove selected class from all
+          paymentMethods.forEach(m => m.classList.remove('selected'));
+
+          // Add selected class to clicked method
+          method.classList.add('selected');
+
+          // Update radio button
+          const radio = method.querySelector('input[type="radio"]');
+          radio.checked = true;
+
+          // Show/hide forms
+          if (radio.value === 'credit') {
+            creditCardForm.style.display = 'block';
+            paypalForm.style.display = 'none';
+          } else {
+            creditCardForm.style.display = 'none';
+            paypalForm.style.display = 'block';
+          }
+        });
+      });
+
+      // Form validation
+      checkoutForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // Show processing overlay
+        processingOverlay.style.display = 'flex';
+        submitBtn.disabled = true;
+        spinner.style.display = 'inline-block';
+
+        // Simulate processing
+        setTimeout(() => {
+          processingOverlay.style.display = 'none';
+          successAlert.style.display = 'block';
+          submitBtn.disabled = false;
+          spinner.style.display = 'none';
+
+          // Scroll to success message
+          successAlert.scrollIntoView({ behavior: 'smooth' });
+
+          // Redirect after delay
+          setTimeout(() => {
+            window.location.href = 'index.html';
+          }, 3000);
+        }, 3000);
+      });
+
+      // Credit card number formatting
+      document.getElementById('cardNumber').addEventListener('input', (e) => {
+        let value = e.target.value.replace(/\s/g, '');
+        if (value.length > 0) {
+          value = value.match(new RegExp('.{1,4}', 'g')).join(' ');
+        }
+        e.target.value = value;
+      });
+
+      // Expiry date formatting
+      document.getElementById('expiryDate').addEventListener('input', (e) => {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length >= 2) {
+          value = value.substring(0, 2) + '/' + value.substring(2, 4);
+        }
+        e.target.value = value;
+      });
+
+      // CVV formatting
+      document.getElementById('cvv').addEventListener('input', (e) => {
+        e.target.value = e.target.value.replace(/\D/g, '').substring(0, 4);
+      });
+
+      // ZIP code formatting
+      document.getElementById('zipCode').addEventListener('input', (e) => {
+        e.target.value = e.target.value.replace(/\D/g, '').substring(0, 5);
+      });
+    </script>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light text-center p-4 mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <h5>📘 Online Bookstore</h5>
+            <p>Your one-stop destination for the latest books in technology, cybersecurity, AI, and UI/UX design.</p>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="index.html" class="text-light">Home</a></li>
+              <li><a href="categories.html" class="text-light">Categories</a></li>
+              <li><a href="authors.html" class="text-light">Authors</a></li>
+              <li><a href="about.html" class="text-light">About Us</a></li>
+              <li><a href="faq.html" class="text-light">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h5>Contact Info</h5>
+            <p><i class="bi bi-envelope"></i> info@onlinebookstore.com</p>
+            <p><i class="bi bi-phone"></i> +1 (555) 123-4567</p>
+            <div class="mt-2">
+              <a href="#" class="text-light me-3" data-bs-toggle="tooltip" title="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="text-light me-3" data-bs-toggle="tooltip" title="Twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="text-light me-3" data-bs-toggle="tooltip" title="Instagram"><i class="bi bi-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+        <hr class="my-3">
+        <p class="mb-0">&copy; 2025 Online Bookstore | Designed by Dhruvit Parmar</p>
+      </div>
+    </footer>
+  </body>
+</html>

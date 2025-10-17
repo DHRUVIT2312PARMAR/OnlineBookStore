@@ -1,0 +1,143 @@
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa; /* Light gray background */
+      }
+      .section-header {
+        background-color: #343a40; /* Dark gray for main header */
+        color: white;
+        padding: 1rem 0;
+        margin-bottom: 1rem;
+        font-size: 1.8rem;
+        font-weight: bold;
+      }
+      .category-header {
+        background-color: #e9ecef; /* Lighter gray for sub-headers */
+        color: black;
+        padding: 0.8rem 0;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+        font-weight: bold;
+        border: 1px solid #ced4da; /* A slightly darker border */
+      }
+      .description-box {
+        background-color: #f0f0f0; /* Very light gray */
+        padding: 1rem;
+        border: 1px solid #dee2e6; /* Light gray border */
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .book-item-box {
+        background-color: #f0f0f0; /* Very light gray */
+        padding: 1rem;
+        border: 1px solid #dee2e6;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .new-arrival-header, .best-sellers-header {
+        background-color: #e9ecef; /* Lighter gray */
+        color: black;
+        padding: 0.8rem 0;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+        font-weight: bold;
+        border: 1px solid #ced4da;
+      }
+      .btn-simple {
+        background-color: #6c757d; /* Muted gray for buttons */
+        color: white;
+        border: 1px solid #6c757d;
+      }
+      .btn-simple:hover {
+        background-color: #5a6268;
+        border-color: #545b62;
+      }
+      .carousel-item {
+        height: 300px;
+        background-color: #777;
+      }
+      .carousel-caption {
+        bottom: 3rem;
+        z-index: 10;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+      .carousel-caption h5 {
+        font-size: 2.5rem;
+      }
+      .carousel-caption p {
+        font-size: 1.2rem;
+      }
+      /* New CSS for different background colors */
+      .new-arrivals-section {
+        background-color: #e3f2fd; /* Light blue */
+        padding: 2rem 0;
+      }
+      .best-sellers-section {
+        background-color: #fff3e0; /* Light orange */
+        padding: 2rem 0;
+      }
+      .featured-books-section {
+        background-color: #e8f5e9; /* Light green */
+        padding: 2rem 0;
+      }
+      .jumbotron {
+        padding: 2rem;
+        background-color: #e9ecef;
+        margin-bottom: 2rem;
+        border: 1px solid #dee2e6;
+        text-align: center;
+      }
+      .book-card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 1rem;
+        background-color: #fff;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      /* Updated styling for book covers */
+      .book-cover {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px; /* Increased rounded corners for a smoother look */
+        margin-bottom: 1rem;
+      }
+      .book-card-body {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .book-card-body h5 {
+        font-weight: bold;
+      }
+      .book-card-body p {
+        margin-bottom: 0.5rem;
+      }
+      .rating .bi-star-fill {
+        color: gold;
+      }
+      /* Table specific styling */
+      .book-table {
+        margin-top: 2rem;
+        text-align: left;
+      }
+      .book-table img {
+        width: 80px;
+        height: auto;
+        border-radius: 5px;
+      }
+      .modal-body .book-cover {
+        max-width: 200px;
+        display: block;
+        margin: 0 auto 1rem;
+      }

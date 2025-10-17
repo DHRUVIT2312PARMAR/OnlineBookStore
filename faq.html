@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ - Online Bookstore</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+      .faq-hero {
+        background: #6c757d;
+        color: white;
+        padding: 3rem 0;
+      }
+      .faq-section {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        padding: 2rem;
+        margin-bottom: 2rem;
+      }
+      .accordion-button {
+        background-color: #f8f9fa;
+        color: #495057;
+        font-weight: 600;
+        border: none;
+        box-shadow: none;
+      }
+      .accordion-button:not(.collapsed) {
+        background-color: #e9ecef;
+        color: #495057;
+      }
+      .accordion-button:focus {
+        box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.25);
+        border-color: #17a2b8;
+      }
+      .accordion-body {
+        background-color: white;
+        border-top: 1px solid #dee2e6;
+      }
+      .search-box {
+        background: #6c757d;
+        padding: 2rem;
+        border-radius: 15px;
+        margin-bottom: 2rem;
+      }
+      .contact-card {
+        background: #6c757d;
+        color: white;
+        border-radius: 15px;
+        padding: 2rem;
+        text-align: center;
+      }
+      .category-nav {
+        position: sticky;
+        top: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-book me-2" viewBox="0 0 16 16">
+            <path d="M1 2.82v10.92a1 1 0 0 0 1.5.86l2.5-.86a1 1 0 0 1 .5-.14h6.5a1 1 0 0 0 1 1V4.5a1 1 0 0 0-1-1H7.5a1 1 0 0 1-.5-.14l-2.5-.86a1 1 0 0 0-1.5.86ZM4 1.763l2.5-.86c.883-.304 1.7.228 2 .93L8 2.82v9.52a2 2 0 0 1-1.5.55l-2.5.86a2 2 0 0 1-2 .14V3.123c-.722-.249-1.5.34-1.5 1.14v8.52c0 .8.673 1.488 1.5 1.583L4 14.283V1.763ZM12 4.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Z"/>
+          </svg>
+          <span class="fs-4">Online Bookstore</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="categories.html">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="authors.html">Authors</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cart.html">Cart</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="user.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="faq.html">FAQ</a>
+            </li>
+          </ul>
+          <div class="d-flex" role="search">
+            <input
+              id="faq-search-input"
+              class="form-control me-2"
+              type="search"
+              placeholder="Search FAQ"
+              aria-label="Search"/>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="faq-hero">
+      <div class="container text-center">
+        <h1 class="display-4 mb-4">Frequently Asked Questions</h1>
+        <p class="lead">Find answers to common questions about our bookstore, orders, and services</p>
+      </div>
+    </div>
+
+    <div class="container my-5">
+      <div class="row">
+        <!-- Sidebar Navigation -->
+        <div class="col-lg-3">
+          <div class="category-nav">
+            <div class="search-box">
+              <h5 class="mb-3">
+                <i class="bi bi-search me-2"></i>Search FAQ
+              </h5>
+              <div class="input-group">
+                <input type="text" class="form-control" id="sidebar-search" placeholder="Type your question...">
+                <button class="btn btn-outline-primary" type="button">
+                  <i class="bi bi-search"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="list-group">
+              <a href="#ordering" class="list-group-item list-group-item-action">
+                <i class="bi bi-cart-check me-2"></i>Ordering & Payment
+              </a>
+              <a href="#shipping" class="list-group-item list-group-item-action">
+                <i class="bi bi-truck me-2"></i>Shipping & Delivery
+              </a>
+              <a href="#returns" class="list-group-item list-group-item-action">
+                <i class="bi bi-arrow-counterclockwise me-2"></i>Returns & Exchanges
+              </a>
+              <a href="#account" class="list-group-item list-group-item-action">
+                <i class="bi bi-person-circle me-2"></i>Account & Login
+              </a>
+              <a href="#books" class="list-group-item list-group-item-action">
+                <i class="bi bi-book me-2"></i>Books & Content
+              </a>
+              <a href="#technical" class="list-group-item list-group-item-action">
+                <i class="bi bi-gear me-2"></i>Technical Support
+              </a>
+            </div>
+
+            <div class="contact-card mt-4">
+              <i class="bi bi-headset fs-1 mb-3"></i>
+              <h5>Still need help?</h5>
+              <p class="mb-3">Our customer support team is here to assist you.</p>
+              <a href="contact.html" class="btn btn-light">
+                <i class="bi bi-envelope me-2"></i>Contact Support
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Content -->
+        <div class="col-lg-9">
+          <div class="faq-section">
+            <h2 class="mb-4">Frequently Asked Questions</h2>
+
+            <!-- Ordering & Payment Section -->
+            <div id="ordering">
+              <h3 class="mb-3">
+                <i class="bi bi-cart-check me-2 text-primary"></i>Ordering & Payment
+              </h3>
+
+              <div class="accordion mb-4" id="orderingAccordion">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#question1">
+                      How do I place an order?
+                    </button>
+                  </h2>
+                  <div id="question1" class="accordion-collapse collapse show" data-bs-parent="#orderingAccordion">
+                    <div class="accordion-body">
+                      <p>Placing an order is simple! Browse our catalog, add items to your cart, and proceed to checkout. You'll need to provide shipping information and payment details to complete your order.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question2">
+                      What payment methods do you accept?
+                    </button>
+                  </h2>
+                  <div id="question2" class="accordion-collapse collapse" data-bs-parent="#orderingAccordion">
+                    <div class="accordion-body">
+                      <p>We accept all major credit cards (Visa, MasterCard, American Express, Discover), PayPal, and digital wallets like Apple Pay and Google Pay for your convenience and security.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question3">
+                      Is my payment information secure?
+                    </button>
+                  </h2>
+                  <div id="question3" class="accordion-collapse collapse" data-bs-parent="#orderingAccordion">
+                    <div class="accordion-body">
+                      <p>Absolutely! We use industry-standard SSL encryption and are PCI DSS compliant. Your payment information is processed securely and never stored on our servers.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question4">
+                      Can I cancel or modify my order?
+                    </button>
+                  </h2>
+                  <div id="question4" class="accordion-collapse collapse" data-bs-parent="#orderingAccordion">
+                    <div class="accordion-body">
+                      <p>Orders can be cancelled or modified within 1 hour of placement if they haven't been processed yet. Contact our customer support team immediately for assistance.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Shipping & Delivery Section -->
+            <div id="shipping">
+              <h3 class="mb-3">
+                <i class="bi bi-truck me-2 text-success"></i>Shipping & Delivery
+              </h3>
+
+              <div class="accordion mb-4" id="shippingAccordion">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#question5">
+                      How long does shipping take?
+                    </button>
+                  </h2>
+                  <div id="question5" class="accordion-collapse collapse" data-bs-parent="#shippingAccordion">
+                    <div class="accordion-body">
+                      <p>Standard shipping takes 3-5 business days, expedited shipping takes 1-2 business days, and overnight shipping is available for most locations. International shipping times vary by destination.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question6">
+                      Do you offer free shipping?
+                    </button>
+                  </h2>
+                  <div id="question6" class="accordion-collapse collapse" data-bs-parent="#shippingAccordion">
+                    <div class="accordion-body">
+                      <p>Yes! We offer free standard shipping on orders over $50. Expedited and overnight shipping charges apply regardless of order value.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question7">
+                      Can I track my order?
+                    </button>
+                  </h2>
+                  <div id="question7" class="accordion-collapse collapse" data-bs-parent="#shippingAccordion">
+                    <div class="accordion-body">
+                      <p>Absolutely! Once your order ships, you'll receive a tracking number via email. You can also track your order by logging into your account and viewing your order history.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Returns & Exchanges Section -->
+            <div id="returns">
+              <h3 class="mb-3">
+                <i class="bi bi-arrow-counterclockwise me-2 text-warning"></i>Returns & Exchanges
+              </h3>
+
+              <div class="accordion mb-4" id="returnsAccordion">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#question8">
+                      What is your return policy?
+                    </button>
+                  </h2>
+                  <div id="question8" class="accordion-collapse collapse" data-bs-parent="#returnsAccordion">
+                    <div class="accordion-body">
+                      <p>We offer a 30-day return policy for unused books in their original condition. Digital products and personalized items are not eligible for return. Return shipping is free for defective items.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question9">
+                      How do I initiate a return?
+                    </button>
+                  </h2>
+                  <div id="question9" class="accordion-collapse collapse" data-bs-parent="#returnsAccordion">
+                    <div class="accordion-body">
+                      <p>Log into your account, go to your order history, and select the return option. You can also contact our customer support team, and we'll guide you through the process.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Account & Login Section -->
+            <div id="account">
+              <h3 class="mb-3">
+                <i class="bi bi-person-circle me-2 text-info"></i>Account & Login
+              </h3>
+
+              <div class="accordion mb-4" id="accountAccordion">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#question10">
+                      How do I create an account?
+                    </button>
+                  </h2>
+                  <div id="question10" class="accordion-collapse collapse" data-bs-parent="#accountAccordion">
+                    <div class="accordion-body">
+                      <p>Click on the "Login" button in the top navigation, then select "Create Account". Fill out the registration form with your details, and you'll receive a confirmation email to activate your account.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question11">
+                      I forgot my password. What should I do?
+                    </button>
+                  </h2>
+                  <div id="question11" class="accordion-collapse collapse" data-bs-parent="#accountAccordion">
+                    <div class="accordion-body">
+                      <p>On the login page, click "Forgot password?" and enter your email address. We'll send you a link to reset your password. The link expires after 24 hours for security reasons.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Books & Content Section -->
+            <div id="books">
+              <h3 class="mb-3">
+                <i class="bi bi-book me-2 text-danger"></i>Books & Content
+              </h3>
+
+              <div class="accordion mb-4" id="booksAccordion">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#question12">
+                      Do you sell digital books (eBooks)?
+                    </button>
+                  </h2>
+                  <div id="question12" class="accordion-collapse collapse" data-bs-parent="#booksAccordion">
+                    <div class="accordion-body">
+                      <p>Yes! We offer a wide selection of eBooks in various formats including EPUB, PDF, and Kindle-compatible formats. Digital books are delivered instantly after purchase.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question13">
+                      Can I preorder upcoming books?
+                    </button>
+                  </h2>
+                  <div id="question13" class="accordion-collapse collapse" data-bs-parent="#booksAccordion">
+                    <div class="accordion-body">
+                      <p>Absolutely! We offer preorders for highly anticipated books. You'll be charged when the book becomes available, and we'll ship it to you on the release date or deliver the digital version instantly.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Technical Support Section -->
+            <div id="technical">
+              <h3 class="mb-3">
+                <i class="bi bi-gear me-2 text-secondary"></i>Technical Support
+              </h3>
+
+              <div class="accordion mb-4" id="technicalAccordion">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#question14">
+                      I'm having trouble accessing my eBooks. What should I do?
+                    </button>
+                  </h2>
+                  <div id="question14" class="accordion-collapse collapse" data-bs-parent="#technicalAccordion">
+                    <div class="accordion-body">
+                      <p>First, ensure you're logged into your account. If the issue persists, try clearing your browser cache and cookies, or try accessing from a different device. Contact our technical support if problems continue.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question15">
+                      The website is loading slowly. How can I improve performance?
+                    </button>
+                  </h2>
+                  <div id="question15" class="accordion-collapse collapse" data-bs-parent="#technicalAccordion">
+                    <div class="accordion-body">
+                      <p>Try refreshing the page, clearing your browser cache, or using a different browser. Ensure your internet connection is stable. If issues persist, contact our support team.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Still Need Help Section -->
+    <div class="container my-5">
+      <div class="row">
+        <div class="col-12">
+          <div class="text-center p-5 bg-light rounded">
+            <i class="bi bi-question-circle fs-1 text-primary mb-3"></i>
+            <h3>Still have questions?</h3>
+            <p class="lead mb-4">Our customer support team is ready to help you with any questions or concerns.</p>
+            <div class="d-flex justify-content-center gap-3">
+              <a href="contact.html" class="btn btn-primary btn-lg">
+                <i class="bi bi-envelope me-2"></i>Contact Support
+              </a>
+              <a href="tel:+15551234567" class="btn btn-outline-primary btn-lg">
+                <i class="bi bi-telephone me-2"></i>Call Us
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Search functionality
+      const faqSearchInput = document.getElementById('faq-search-input');
+      const sidebarSearch = document.getElementById('sidebar-search');
+
+      function searchFAQ(query) {
+        const faqItems = document.querySelectorAll('.accordion-item');
+        const lowerQuery = query.toLowerCase();
+
+        faqItems.forEach(item => {
+          const text = item.textContent.toLowerCase();
+          const button = item.querySelector('.accordion-button');
+
+          if (text.includes(lowerQuery)) {
+            item.style.display = 'block';
+            // Highlight matching text in button
+            const buttonText = button.textContent;
+            const highlightedText = buttonText.replace(new RegExp(query, 'gi'), match => `<mark>${match}</mark>`);
+            button.innerHTML = highlightedText;
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      }
+
+      faqSearchInput.addEventListener('input', (e) => {
+        searchFAQ(e.target.value);
+      });
+
+      sidebarSearch.addEventListener('input', (e) => {
+        searchFAQ(e.target.value);
+      });
+
+      // Scrollspy for sidebar navigation
+      document.addEventListener('DOMContentLoaded', function () {
+        const sections = ['ordering', 'shipping', 'returns', 'account', 'books', 'technical'];
+        const navLinks = document.querySelectorAll('.list-group-item');
+
+        window.addEventListener('scroll', () => {
+          const scrollPos = window.scrollY + 100;
+
+          sections.forEach((sectionId, index) => {
+            const element = document.getElementById(sectionId);
+            if (element) {
+              const top = element.offsetTop;
+              const bottom = top + element.offsetHeight;
+
+              if (scrollPos >= top && scrollPos <= bottom) {
+                navLinks.forEach(link => link.classList.remove('active'));
+                navLinks[index].classList.add('active');
+              }
+            }
+          });
+        });
+
+        // Smooth scroll for sidebar links
+        navLinks.forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+              targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+          });
+        });
+      });
+    </script>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light text-center p-4 mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <h5>📘 Online Bookstore</h5>
+            <p>Your one-stop destination for the latest books in technology, cybersecurity, AI, and UI/UX design.</p>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="index.html" class="text-light">Home</a></li>
+              <li><a href="categories.html" class="text-light">Categories</a></li>
+              <li><a href="authors.html" class="text-light">Authors</a></li>
+              <li><a href="about.html" class="text-light">About Us</a></li>
+              <li><a href="faq.html" class="text-light">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h5>Contact Info</h5>
+            <p><i class="bi bi-envelope"></i> info@onlinebookstore.com</p>
+            <p><i class="bi bi-phone"></i> +1 (555) 123-4567</p>
+            <div class="mt-2">
+              <a href="#" class="text-light me-3" data-bs-toggle="tooltip" title="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="text-light me-3" data-bs-toggle="tooltip" title="Twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="text-light me-3" data-bs-toggle="tooltip" title="Instagram"><i class="bi bi-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+        <hr class="my-3">
+        <p class="mb-0">&copy; 2025 Online Bookstore | Designed by Dhruvit Parmar</p>
+      </div>
+    </footer>
+  </body>
+</html>

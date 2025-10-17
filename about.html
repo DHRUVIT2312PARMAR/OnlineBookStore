@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Online Bookstore</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+      .hero-section {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 4rem 0;
+      }
+      .mission-card {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: none;
+        border-radius: 15px;
+        padding: 2rem;
+        text-align: center;
+        height: 100%;
+      }
+      .team-card {
+        text-align: center;
+        border: none;
+        transition: transform 0.3s ease;
+      }
+      .team-card:hover {
+        transform: translateY(-5px);
+      }
+      .progress {
+        height: 8px;
+        border-radius: 10px;
+      }
+      .stats-section {
+        background: linear-gradient(135deg, #343a40 0%, #495057 100%);
+        color: white;
+      }
+      .achievement-card {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 15px;
+        padding: 2rem;
+        text-align: center;
+        backdrop-filter: blur(10px);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-book me-2" viewBox="0 0 16 16">
+            <path d="M1 2.82v10.92a1 1 0 0 0 1.5.86l2.5-.86a1 1 0 0 1 .5-.14h6.5a1 1 0 0 0 1 1V4.5a1 1 0 0 0-1-1H7.5a1 1 0 0 1-.5-.14l-2.5-.86a1 1 0 0 0-1.5.86ZM4 1.763l2.5-.86c.883-.304 1.7.228 2 .93L8 2.82v9.52a2 2 0 0 1-1.5.55l-2.5.86a2 2 0 0 1-2 .14V3.123c-.722-.249-1.5.34-1.5 1.14v8.52c0 .8.673 1.488 1.5 1.583L4 14.283V1.763ZM12 4.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Z"/>
+          </svg>
+          <span class="fs-4">Online Bookstore</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="categories.html">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="authors.html">Authors</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cart.html">Cart</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="user.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="about.html">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <div class="container text-center">
+        <h1 class="display-4 mb-4">About Online Bookstore</h1>
+        <p class="lead">Discover our story, mission, and the passionate team behind your favorite online bookstore.</p>
+      </div>
+    </div>
+
+    <div class="container my-5">
+      <!-- Mission & Vision -->
+      <div class="row mb-5">
+        <div class="col-lg-6 mb-4">
+          <div class="mission-card card">
+            <div class="card-body">
+              <i class="bi bi-bullseye text-primary fs-1 mb-3"></i>
+              <h3 class="card-title">Our Mission</h3>
+              <p class="card-text">To democratize knowledge by making high-quality books accessible to everyone, fostering lifelong learning and intellectual growth in our communities.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="mission-card card">
+            <div class="card-body">
+              <i class="bi bi-eye text-primary fs-1 mb-3"></i>
+              <h3 class="card-title">Our Vision</h3>
+              <p class="card-text">To become the world's most trusted online bookstore, connecting readers with ideas that inspire, educate, and transform lives.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Company Story -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <h2 class="text-center mb-4">Our Story</h2>
+          <div class="row">
+            <div class="col-md-8 mx-auto">
+              <p class="lead text-center mb-4">Founded in 2020, Online Bookstore began as a small startup with a big dream - to revolutionize how people discover and purchase books online.</p>
+
+              <p>What started as a passion project by a group of book lovers has grown into one of the most comprehensive online bookstores, offering an extensive collection of books across various genres and categories.</p>
+
+              <p>Our journey has been marked by continuous innovation, from our user-friendly interface to our personalized recommendation system that helps readers discover their next favorite book.</p>
+
+              <p>Today, we serve thousands of customers worldwide, providing not just books, but a complete reading experience that includes author events, book clubs, and educational resources.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Company Values -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <h2 class="text-center mb-4">Our Values</h2>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="card text-center border-0 bg-light">
+            <div class="card-body">
+              <i class="bi bi-heart text-danger fs-1 mb-3"></i>
+              <h5>Passion for Books</h5>
+              <p>We love books and believe in their power to change lives and broaden perspectives.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card text-center border-0 bg-light">
+            <div class="card-body">
+              <i class="bi bi-people text-primary fs-1 mb-3"></i>
+              <h5>Customer First</h5>
+              <p>Every decision we make prioritizes our customers' needs and reading experience.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card text-center border-0 bg-light">
+            <div class="card-body">
+              <i class="bi bi-lightbulb text-warning fs-1 mb-3"></i>
+              <h5>Innovation</h5>
+              <p>We continuously innovate to make book discovery and purchasing easier and more enjoyable.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card text-center border-0 bg-light">
+            <div class="card-body">
+              <i class="bi bi-shield-check text-success fs-1 mb-3"></i>
+              <h5>Quality & Trust</h5>
+              <p>We maintain the highest standards of quality in our products and services.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Company Stats -->
+      <div class="stats-section py-5 mt-5">
+        <div class="container">
+          <h2 class="text-center mb-5">Our Impact</h2>
+          <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+              <div class="achievement-card">
+                <i class="bi bi-book fs-1 mb-3 text-warning"></i>
+                <h3 class="mb-2">50,000+</h3>
+                <p>Books Available</p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="achievement-card">
+                <i class="bi bi-people fs-1 mb-3 text-info"></i>
+                <h3 class="mb-2">25,000+</h3>
+                <p>Happy Customers</p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="achievement-card">
+                <i class="bi bi-truck fs-1 mb-3 text-success"></i>
+                <h3 class="mb-2">98%</h3>
+                <p>On-Time Delivery</p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="achievement-card">
+                <i class="bi bi-star fs-1 mb-3 text-warning"></i>
+                <h3 class="mb-2">4.8/5</h3>
+                <p>Customer Rating</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team Section -->
+      <div class="row mt-5">
+        <div class="col-12">
+          <h2 class="text-center mb-4">Meet Our Team</h2>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6">
+          <div class="card team-card">
+            <img src="images/team1.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 150px; height: 150px; object-fit: cover;" alt="Team Member">
+            <div class="card-body">
+              <h5 class="card-title">Sarah Johnson</h5>
+              <p class="card-text text-muted">CEO & Founder</p>
+              <p class="card-text">Sarah founded the company with a vision to make quality books accessible to everyone.</p>
+              <div class="d-flex justify-content-center gap-2">
+                <a href="#" class="text-primary"><i class="bi bi-linkedin"></i></a>
+                <a href="#" class="text-primary"><i class="bi bi-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="card team-card">
+            <img src="images/team2.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 150px; height: 150px; object-fit: cover;" alt="Team Member">
+            <div class="card-body">
+              <h5 class="card-title">Michael Chen</h5>
+              <p class="card-text text-muted">CTO</p>
+              <p class="card-text">Michael leads our technology team, ensuring seamless online shopping experiences.</p>
+              <div class="d-flex justify-content-center gap-2">
+                <a href="#" class="text-primary"><i class="bi bi-linkedin"></i></a>
+                <a href="#" class="text-primary"><i class="bi bi-github"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="card team-card">
+            <img src="images/team3.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 150px; height: 150px; object-fit: cover;" alt="Team Member">
+            <div class="card-body">
+              <h5 class="card-title">Emily Rodriguez</h5>
+              <p class="card-text text-muted">Head of Content</p>
+              <p class="card-text">Emily curates our book collection and manages author relationships.</p>
+              <div class="d-flex justify-content-center gap-2">
+                <a href="#" class="text-primary"><i class="bi bi-linkedin"></i></a>
+                <a href="#" class="text-primary"><i class="bi bi-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="card team-card">
+            <img src="images/team4.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 150px; height: 150px; object-fit: cover;" alt="Team Member">
+            <div class="card-body">
+              <h5 class="card-title">David Kim</h5>
+              <p class="card-text text-muted">Customer Experience</p>
+              <p class="card-text">David ensures every customer has an exceptional shopping experience.</p>
+              <div class="d-flex justify-content-center gap-2">
+                <a href="#" class="text-primary"><i class="bi bi-linkedin"></i></a>
+                <a href="#" class="text-primary"><i class="bi bi-telephone"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills & Expertise -->
+      <div class="row mt-5">
+        <div class="col-12">
+          <h2 class="text-center mb-4">Our Expertise</h2>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6">
+          <h5>Technology Stack</h5>
+          <div class="mb-3">
+            <div class="d-flex justify-content-between">
+              <span>Web Development</span>
+              <span>95%</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar bg-primary" role="progressbar" style="width: 95%"></div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="d-flex justify-content-between">
+              <span>E-commerce Platform</span>
+              <span>90%</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar bg-success" role="progressbar" style="width: 90%"></div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="d-flex justify-content-between">
+              <span>Database Management</span>
+              <span>88%</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar bg-info" role="progressbar" style="width: 88%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <h5>Customer Satisfaction</h5>
+          <div class="mb-3">
+            <div class="d-flex justify-content-between">
+              <span>Order Accuracy</span>
+              <span>99%</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar bg-warning" role="progressbar" style="width: 99%"></div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="d-flex justify-content-between">
+              <span>Customer Support</span>
+              <span>96%</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar bg-danger" role="progressbar" style="width: 96%"></div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="d-flex justify-content-between">
+              <span>Delivery Speed</span>
+              <span>94%</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar bg-secondary" role="progressbar" style="width: 94%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light text-center p-4 mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <h5>📘 Online Bookstore</h5>
+            <p>Your one-stop destination for the latest books in technology, cybersecurity, AI, and UI/UX design.</p>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="index.html" class="text-light">Home</a></li>
+              <li><a href="categories.html" class="text-light">Categories</a></li>
+              <li><a href="authors.html" class="text-light">Authors</a></li>
+              <li><a href="about.html" class="text-light">About Us</a></li>
+              <li><a href="faq.html" class="text-light">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h5>Contact Info</h5>
+            <p><i class="bi bi-envelope"></i> info@onlinebookstore.com</p>
+            <p><i class="bi bi-phone"></i> +1 (555) 123-4567</p>
+            <div class="mt-2">
+              <a href="#" class="text-light me-3" data-bs-toggle="tooltip" title="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="text-light me-3" data-bs-toggle="tooltip" title="Twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="text-light me-3" data-bs-toggle="tooltip" title="Instagram"><i class="bi bi-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+        <hr class="my-3">
+        <p class="mb-0">&copy; 2025 Online Bookstore | Designed by Dhruvit Parmar</p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart - Online Bookstore</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+      .cart-hero {
+        background: #6c757d;
+        color: white;
+        padding: 3rem 0;
+      }
+      .cart-item {
+        border: 1px solid #dee2e6;
+        border-radius: 10px;
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+        background: white;
+        transition: box-shadow 0.3s ease;
+      }
+      .cart-item:hover {
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      }
+      .book-cover-cart {
+        width: 80px;
+        height: auto;
+        border-radius: 5px;
+      }
+      .quantity-input {
+        width: 80px;
+        text-align: center;
+      }
+      .cart-summary {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-radius: 10px;
+        padding: 2rem;
+        position: sticky;
+        top: 2rem;
+      }
+      .promo-code {
+        background: white;
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+      }
+      .empty-cart {
+        text-align: center;
+        padding: 3rem;
+        color: #6c757d;
+      }
+      .btn-update {
+        background-color: #ffc107;
+        border-color: #ffc107;
+        color: #212529;
+      }
+      .btn-update:hover {
+        background-color: #e0a800;
+        border-color: #d39e00;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-book me-2" viewBox="0 0 16 16">
+            <path d="M1 2.82v10.92a1 1 0 0 0 1.5.86l2.5-.86a1 1 0 0 1 .5-.14h6.5a1 1 0 0 0 1 1V4.5a1 1 0 0 0-1-1H7.5a1 1 0 0 1-.5-.14l-2.5-.86a1 1 0 0 0-1.5.86ZM4 1.763l2.5-.86c.883-.304 1.7.228 2 .93L8 2.82v9.52a2 2 0 0 1-1.5.55l-2.5.86a2 2 0 0 1-2 .14V3.123c-.722-.249-1.5.34-1.5 1.14v8.52c0 .8.673 1.488 1.5 1.583L4 14.283V1.763ZM12 4.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Z"/>
+          </svg>
+          <span class="fs-4">Online Bookstore</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="categories.html">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="authors.html">Authors</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="user.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="cart-hero">
+      <div class="container text-center">
+        <h1 class="display-4 mb-4">Shopping Cart</h1>
+        <p class="lead">Review your items and proceed to checkout</p>
+      </div>
+    </div>
+
+    <div class="container my-5">
+      <div class="card shadow rounded-4 p-4">
+        <h3 class="fw-bold mb-3">Your Shopping Cart</h3>
+        <table class="table align-middle">
+          <thead class="table-dark">
+            <tr>
+              <th>Book</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>The Alchemist</td>
+              <td><input type="number" class="form-control w-50" value="1"></td>
+              <td>₹499</td>
+              <td>₹499</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="text-end">
+          <a href="checkout.html" class="btn btn-primary px-4">Proceed to Checkout</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Simple cart functionality - just basic interactivity
+      document.addEventListener('DOMContentLoaded', function() {
+        // You can add any additional cart functionality here if needed
+        console.log('Cart page loaded successfully');
+      });
+    </script>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light text-center p-4 mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <h5>📘 Online Bookstore</h5>
+            <p>Your one-stop destination for the latest books in technology, cybersecurity, AI, and UI/UX design.</p>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="index.html" class="text-light">Home</a></li>
+              <li><a href="categories.html" class="text-light">Categories</a></li>
+              <li><a href="authors.html" class="text-light">Authors</a></li>
+              <li><a href="about.html" class="text-light">About Us</a></li>
+              <li><a href="faq.html" class="text-light">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h5>Contact Info</h5>
+            <p><i class="bi bi-envelope"></i> info@onlinebookstore.com</p>
+            <p><i class="bi bi-phone"></i> +1 (555) 123-4567</p>
+            <div class="mt-2">
+              <a href="#" class="text-light me-3" data-bs-toggle="tooltip" title="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="text-light me-3" data-bs-toggle="tooltip" title="Twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="text-light me-3" data-bs-toggle="tooltip" title="Instagram"><i class="bi bi-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+        <hr class="my-3">
+        <p class="mb-0">&copy; 2025 Online Bookstore | Designed by Dhruvit Parmar</p>
+      </div>
+    </footer>
+  </body>
+</html>
